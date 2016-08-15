@@ -1,0 +1,10 @@
+*.pyc
+*∼
+*.egg-info
+*.mo
+*.egg
+/.idea
+.idea
+db.py
+email_info.py
+venv_*

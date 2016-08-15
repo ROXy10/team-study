@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Template</title>
+  <!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    #rectangle{
+      background-color: #5cb85c;
+      height: 0;
+      width: 0;
+      border-radius: 3px;
+      border-color: #ccc;
+      border: 0px solid;
+    }  
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Contextual button for informational alert messages -->
+        <button type="button" class="btn btn-default" data-toggle="dropdown">Button 1</button>
+        <div id="rectangle"></div>
+      </div>
+      <div class="col-md-6">
+        <!-- Contextual button for informational alert messages -->
+        <button type="button" class="btn btn btn-default">
+          Button 2 <span class="label label-danger"></span>
+        </button>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-2">
+        <h2>Counter <span class="badge">0</span></h2>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    var rectangleId = $('#rectangle');
+    var lastButton = $('button:last');
+    var colors = ["#5cb85c", "#f0ad4e", "#d9534f"];
+    $('button:first').click(function (){
+      if (rectangleId.css('width') == '0px') {
+        $('.badge').text(parseInt($('.badge').text()) + 1);
+        rectangleId.animate({ 
+          width: "100px",         
+          height: "100px",         
+          borderWidth: "1px"
+        }, 500); 
+      } else {
+        rectangleId.animate({ 
+          width: "0px",         
+          height: "0px",         
+          borderWidth: "0px"
+        }, 500);  
+      } 
+    })
+    lastButton.click(function (){
+      if (rectangleId.css('width') == '0px') {
+        var spanBatton = $('.label-danger')
+        lastButton.animate({ 
+          width: "250px",         
+        }, 500);
+        spanBatton.text('Pаскройте прямоугольник');
+      } else {
+        rectangleId.css("background-color", colors[Math.floor(Math.random() * 3)]);   
+      }         
+    })
+  </script>
+</body>
+</html>
