@@ -80,7 +80,7 @@ class Bonus(models.Model):
         ordering = ["owner"]
 
     def __str__(self):
-        return "%s amount order=%s cash back=%s" % (self.owner, self.amount_order, self.cash_back)
+        return "%s amount order=%s cash back=%s" (self.owner, self.amount_order, self.cash_back)
 
 
 class Order(models.Model):
